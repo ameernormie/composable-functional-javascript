@@ -5,3 +5,9 @@
 **`chain` expects you to run a function and return another one**
 
 Functional programming is the first step towards error free coding
+
+## Concepts
+- Box
+- Either
+- Left
+- Right
