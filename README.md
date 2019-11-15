@@ -11,3 +11,6 @@ Functional programming is the first step towards error free coding
 - Either
 - Left
 - Right
+
+
+ **How composability helps us make our code clean?**
