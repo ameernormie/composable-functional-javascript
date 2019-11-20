@@ -14,3 +14,5 @@ Functional programming is the first step towards error free coding
 
 
  **How composability helps us make our code clean?**
+
+ - What are functors (composable map)
