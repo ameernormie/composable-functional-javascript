@@ -48,4 +48,12 @@ const sum = xs => xs.reduce((acc, x) => acc + x, 0);
 
 const all = xs => xs.reduce((acc, x) => Boolean(acc && x), true);
 
-console.log(all([1, 2, 3]));
+const max = xs => xs.reduce((acc, x) => (acc > x ? acc : x));
+
+const min = xs => xs.reduce((acc, x) => (acc < x ? acc : x));
+
+console.log(all([1, 2, 3])); // true
+
+console.log(max([1, 2, 3, 45, 4])); // 45
+
+console.log(min([1, 2, 3, 45, 4])); // 1
