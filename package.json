@@ -6,6 +6,7 @@
   "author": "Ameer Hamza <ameernormie@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "immutable": "^4.0.0-rc.12",
     "immutable-ext": "^1.1.5"
   }
 }
