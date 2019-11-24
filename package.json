@@ -1,0 +1,8 @@
+{
+  "name": "composable-functional-javascript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ameernormie/composable-functional-javascript.git",
+  "author": "Ameer Hamza <ameernormie@gmail.com>",
+  "license": "MIT"
+}
