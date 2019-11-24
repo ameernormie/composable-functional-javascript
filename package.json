@@ -4,5 +4,8 @@
   "main": "index.js",
   "repository": "git@github.com:ameernormie/composable-functional-javascript.git",
   "author": "Ameer Hamza <ameernormie@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "immutable-ext": "^1.1.5"
+  }
 }
