@@ -87,3 +87,21 @@ const m = Box("wonder");
 const res1 = join(Box.of(m)); // Box(wonder)
 const res2 = join(m.map(Box.of));
 ```
+
+3. `chain`
+   Monads have a chain method on them. `chain` basically is `flatmap`.
+   Example:
+
+```javascript
+import { map, flatten, chain } from "ramda";
+const arr = [1, 2, 3, 4];
+
+// duplicate takes a value and returns an other type(array) with value in it
+const duplicate = x => [x, x];
+
+// Normally
+console.log(flatten(map(duplicate, arr))); // [1,1,2,2,3,3,4,4]
+
+// Using chain (flatMap) is automatically applied
+console.log(chain(duplicate, arr)); // [1,1,2,2,3,3,4,4]
+```
