@@ -31,3 +31,10 @@ const map = f => xs => xs.map(f);
 const censorAll = map(censor);
 const res5 = censorAll(["hello", "world", "how", "are", "you"]);
 res5; // ['h*ll*', 'w*rld', 'h*w', '*r*', 'y**']
+
+const join = separator => list => list.join(separator);
+
+const joinWithCommas = join(", ");
+
+const res6 = joinWithCommas(res5);
+res6; // h*ll*, w*rld, h*w, *r*, y**
