@@ -23,6 +23,7 @@ Functional programming is the first step towards error free coding
 - monoid
 - functor
 - monads
+- Applicative Functors
 
 **How composability helps us make our code clean?**
 
@@ -112,5 +113,3 @@ console.log(flatten(map(duplicate, arr))); // [1,1,2,2,3,3,4,4]
 // Using chain (flatMap) is automatically applied
 console.log(chain(duplicate, arr)); // [1,1,2,2,3,3,4,4]
 ```
-
-
