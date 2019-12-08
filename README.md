@@ -29,6 +29,8 @@ Functional programming is the first step towards error free coding
 
 - What are functors (composable map)
 - What are monads
+- What is ad-hoc polymorphism?
+- What are type-classes?
 
 ### Functors:
 
