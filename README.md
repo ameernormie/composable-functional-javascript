@@ -2,7 +2,7 @@
 
 **`map` isn't so much about the iteration. It's more about composition within a context**
 **`fold` is the idea of removing the value from its context- Taking it out of the box(Right, Left)**
-**`chain` expects you to run a function and return another one**
+**`chain` expects you to run a function and return another one. Also called foldMap in some languages**
 **`semi-group` is a type with a concat method**
 **`monoid` a semi-group with a special element in there that acts like an identity**
 **`functor` any type with a `map` method. It must obey some laws**
@@ -116,7 +116,3 @@ console.log(flatten(map(duplicate, arr))); // [1,1,2,2,3,3,4,4]
 // Using chain (flatMap) is automatically applied
 console.log(chain(duplicate, arr)); // [1,1,2,2,3,3,4,4]
 ```
-
-
-
-
