@@ -1,3 +1,4 @@
+const R = require("ramda");
 // const nextCharForNumberString = str => {
 //   const trimmed = str.trim();
 //   const number = parseInt(trimmed);
@@ -16,6 +17,16 @@
 //     .map(s => parseInt(s))
 //     .map(i => i + 1)
 //     .map(ch => String.fromCharCode(ch));
+
+/** Using ramda */
+
+const nextCharForNumStr = R.compose(
+  String.fromCharCode,
+  R.inc,
+  R.unary(parseInt),
+  R.trim
+);
+const nextChar = nextCharForNumStr(" 64 "); // A
 
 const Box = x => ({
   ap: b2 => b2.map(x),
