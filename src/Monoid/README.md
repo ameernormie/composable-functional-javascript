@@ -25,3 +25,22 @@ Algebraic Structure (S, \*)
    ```
 
 For example, set of integers is a semi group
+
+### Monoid
+
+Algebraic Structure (S, \*)
+
+1. Closure:
+   `∀ x, y Ɛ S, x * y Ɛ S`
+2. Associativity:
+
+   ```
+   ∀ x, y, z Ɛ S
+   (x * y) * z = x * (y * z)
+
+   ```
+
+3. has an identity element:
+   ```
+   ∀x Ɛ S , x * id = x
+   ```
