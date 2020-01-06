@@ -9,3 +9,19 @@ N = {1,2,3,4,5}         operation: +
 ```
 
 If these structures follow some properties then we give these structures some names.
+
+### Semi-Group
+
+Algebraic Structure (S, \*)
+
+1. Closure:
+   `∀ x, y Ɛ S, x * y Ɛ S`
+2. Associativity:
+
+   ```
+   ∀ x, y, z Ɛ S
+   (x * y) * z = x * (y * z)
+
+   ```
+
+For example, set of integers is a semi group
