@@ -26,6 +26,19 @@ Algebraic Structure (S, \*)
 
 For example, set of integers is a semi group
 
+### Sub semi-group:
+
+(S, _) <--- Semi group
+(T, _) <--- Sub semi group
+
+if
+`T is a subset of S`
+`T is closed on *`
+
+e.g.
+(Z, +) <--- Integers
+(E, +) <--- Even numbers
+
 ### Monoid
 
 Algebraic Structure (S, \*)
