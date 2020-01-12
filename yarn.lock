@@ -7,6 +7,11 @@ data.task@^3.1.2:
   resolved "https://registry.yarnpkg.com/data.task/-/data.task-3.1.2.tgz#f61511339ad5c5ac6f417cc2666b95153dc7448d"
   integrity sha512-gGDjno8m/FS1kdMU3EmKcLaO1enFyfCV/EscvDZ4+KZDSg9xHePa2VFfWd+QO5PUp18NdCIziOpaSUE4Efw8/w==
 
+fp-ts@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/fp-ts/-/fp-ts-2.4.0.tgz#087864607d5cc130a6427220a77096d4592baddc"
+  integrity sha512-o96pqlRq4YB0dZpnInHrz6O6jHWTf+jDIpY6vsM/ZxAPfOhW9gl9ng62wfyhFHFeH+Ldn2/zOF32xbR2O+/MEw==
+
 futurize@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/futurize/-/futurize-1.2.0.tgz#6ef93abb1b532ca45494bb96fa6c0900acabc43d"
