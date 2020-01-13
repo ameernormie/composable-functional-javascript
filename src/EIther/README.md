@@ -16,3 +16,16 @@ const res = Right(3).map(x => x + 1);
 
 res; // Right(4)
 ```
+
+### Left
+
+```javascript
+const Left = x => ({
+  map: f => Left(x), // Key difference - It will not run the f on x. It will ignore the f altogether
+  inspect: () => `Left(${x})`
+});
+
+const res = Left(3).map(x => x + 1);
+
+res; // Left(3) - Function wasn't applied - It just returned the original value
+```
