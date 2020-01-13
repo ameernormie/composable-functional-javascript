@@ -16,9 +16,12 @@ const Left = x => ({
  * If its Right it will run the function `x => x`
  * If its Left it will return `error`
  */
-const result = Right(3)
+const result = Left(3)
   .map(x => x + 3)
-  .fold(x => "error", x => x);
+  .fold(
+    x => "error",
+    x => x
+  );
 
 /**
  * If no color is found then it will return undefined.
@@ -39,12 +42,18 @@ result;
 console.log(
   findColor("blue")
     .map(c => c.slice(1))
-    .fold(e => "no color found with that name", c => c.toUpperCase())
+    .fold(
+      e => "no color found with that name",
+      c => c.toUpperCase()
+    )
 );
 
 /** Console will show `no color found with that name` */
 console.log(
   findColor("orange")
     .map(c => c.slice(1))
-    .fold(e => "no color found with that name", c => c.toUpperCase())
+    .fold(
+      e => "no color found with that name",
+      c => c.toUpperCase()
+    )
 );
