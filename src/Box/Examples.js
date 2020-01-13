@@ -8,6 +8,7 @@ const previousMoneyToFloat = str => parseFloat(str.replace(/\$/g, ""));
 
 /**
  * Converted @method previousMoneyToFloat to use `Box`
+ * This is better than the previous solution because by using box we have un-nested the expression
  *
  * @param {string} str
  */
@@ -24,6 +25,8 @@ const previousPercentToFloat = str => {
 
 /**
  * Converted @method previousPercentToFloat to use `Box`
+ * This implementation is better than the previous because we got rid
+ * of state variables and the flow is much simpler
  *
  * @param {string} str
  */
