@@ -1,9 +1,12 @@
+const fs = require("fs");
+
 const {
   fold,
   left,
   right,
   map,
   //   fromNullable,
+  tryCatch,
   isRight,
   isLeft
 } = require("fp-ts/lib/Either");
@@ -43,3 +46,21 @@ const colorFoundImproved = pipe(
 );
 
 console.log("improved find color ", colorFoundImproved);
+
+// const tryCatch = f => {
+//   try {
+//     return right(f());
+//   } catch (e) {
+//     return left(e);
+//   }
+// };
+
+const getPort = () =>
+  tryCatch(
+    () => fs.readFileSync("config.json"),
+    x => x
+  ).map(x => JSON.parse(x));
+
+const result = getPort();
+
+console.log("result ", result);
