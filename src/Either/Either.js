@@ -57,3 +57,7 @@ console.log(
       c => c.toUpperCase()
     )
 );
+
+module.exports.fromNullable = fromNullable;
+module.exports.Right = Right;
+module.exports.Left = Left;
