@@ -12,6 +12,14 @@ const Left = x => ({
   inspect: () => `Right(${x})`
 });
 
+const tryCatch = f => {
+  try {
+    return Right(f());
+  } catch (e) {
+    return Left(e);
+  }
+};
+
 /**
  * If its Right it will run the function `x => x`
  * If its Left it will return `error`
@@ -61,3 +69,4 @@ console.log(
 module.exports.fromNullable = fromNullable;
 module.exports.Right = Right;
 module.exports.Left = Left;
+module.exports.tryCatch = tryCatch;
