@@ -22,3 +22,35 @@ const res = Sum(1).concat(Sum(2));
 
 res; // Sum(3)
 ```
+
+#### All Semi-Group:
+
+This is a kind of concatination. We are combining two values and concating it to one.
+`true && false` // false
+`true && true` // true
+
+```javascript
+const All = x => ({
+  x,
+  concat: o => All(x && o.x)
+});
+
+const res = All(true).concat(All(false));
+
+res; // All(false)
+```
+
+#### First Semi-Group:
+
+It will always keep the first one
+
+```javascript
+const First = x => ({
+  x,
+  concat: _o_ => First(x)
+});
+
+const res = First("blah").concat(First("ice cream"));
+
+res; // First(blah)
+```
