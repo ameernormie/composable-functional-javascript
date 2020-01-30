@@ -9,3 +9,16 @@ A `Semi-Group` is a mathematical term that comes from algebra that has some rule
 
 If you think about it addition is a semi-group i.e. 1 + (1 + 1) = (1 + 1) + 1
 but we can't call `concat` on a number. But we can define our own semi-group.
+
+#### Sum Semi-Group:
+
+```javascript
+const Sum = x => ({
+  x,
+  concat: o => Sum(x + o.x)
+});
+
+const res = Sum(1).concat(Sum(2));
+
+res; // Sum(3)
+```
