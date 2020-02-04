@@ -52,7 +52,7 @@ We don't have a way to convert `First` semi-group to a `monoid` because `First.e
 ```javascript
 const First = x => ({
   x,
-  concat: _o_ => First(x)
+  concat: o => First(x)
 });
 
 const res = First("blah").concat(First("ice cream"));
@@ -60,6 +60,61 @@ const res = First("blah").concat(First("ice cream"));
 res; // First(blah)
 ```
 
+#### First Monoid:
+
+`First` can be converted to a monoid if it accepts an `Either` type
+
+```javascript
+const First = either => ({
+  fold: f => f(either),
+  concat: o => (either.isLeft ? o : First(either))
+});
+
+First.empty = () => First(Left());
+```
+
+#### Product Monoid:
+
+```javascript
+const Product = x => ({
+  x,
+  concat: o => Product(x * o.x)
+});
+
+Product.empty = () => Product(1);
+```
+
+#### Any Monoid:
+
+```javascript
+const Any = x => ({
+  x,
+  concat: o => Any(x || o.x)
+});
+
+Any.empty = () => Any(false);
+```
+
+#### Max Monoid:
+
+```javascript
+const Max = x => ({
+  x,
+  concat: o => Max(x > o.x ? x : o.x)
+});
+
+Max.empty = () => Max(-Infinity);
+```
+
+#### Min Monoid:
+
+````javascript
+const Min = x => ({
+  x,
+  concat: o => Min(x < o.x ? x : o.x)
+});
+
+Min.empty = () => Min(Infinity);
 ---
 
 **A semi-group doesn't have an identity value so it does not have an element to return, so it is not a safe operation, whereas with a monoid we can take as many as possible even an none**
@@ -88,4 +143,4 @@ const first = xs => xs.reduce((acc, x) => acc);
 const giveFirst = first([1, 2, 3]); // 1
 // If called on an empty list it will blow up (Give error)
 const gitFirst = first([]); // Error
-```
+````
