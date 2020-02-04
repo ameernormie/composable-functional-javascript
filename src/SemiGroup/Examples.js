@@ -3,24 +3,7 @@
  */
 
 const { Map } = require("immutable-ext");
-
-const First = x => ({
-  x,
-  concat: _ => First(x),
-  inspect: () => `First(${x})`
-});
-
-const All = x => ({
-  x,
-  concat: ({ x: y }) => All(x && y),
-  inspect: () => `All(${x})`
-});
-
-const Sum = x => ({
-  x,
-  concat: ({ x: y }) => Sum(x + y),
-  inspect: () => `Sum(${x})`
-});
+const { All, First, Sum } = require("./SemiGroups");
 
 const acct1 = Map({
   name: First("Ameer"),
@@ -39,3 +22,20 @@ const acct2 = Map({
 const result = acct1.concat(acct2).toJS();
 
 console.log("combined accounts are ", result);
+
+/**
+ combined accounts are  {
+    name: {
+      x: 'Ameer',
+      concat: [Function: concat],
+      inspect: [Function: inspect]
+    },
+    isPaid: {
+      x: false,
+      concat: [Function: concat],
+      inspect: [Function: inspect]
+    },
+    points: { x: 12, concat: [Function: concat], inspect: [Function: inspect] },
+    friends: [ 'Adil', 'Rafay' ]
+  }
+ */
