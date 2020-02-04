@@ -59,3 +59,33 @@ const res = First("blah").concat(First("ice cream"));
 
 res; // First(blah)
 ```
+
+---
+
+**A semi-group doesn't have an identity value so it does not have an element to return, so it is not a safe operation, whereas with a monoid we can take as many as possible even an none**
+
+```javascript
+// Starting point of reduce is 0, that is an identity for sum
+const sum = xs => xs.reduce((acc, x) => acc + x, 0);
+
+// If called on a list it will yield the sum of that list
+const sumList = sum([1, 2, 3]); // 6
+// If called on an empty list it will yield 0
+const sumList = sum([]); // 0
+
+// Starting point of reduce is true, that is an identity for all
+const all = xs => xs.reduce((acc, x) => acc && x, true);
+
+// If called on a list it will yield true or false
+const allTrue = all([true, false, true]); // false
+// If called on an empty list it will yield true
+const allTrue = all([]); // true
+
+// Starting point of reduce is nothing, because we don't have a starting value
+const first = xs => xs.reduce((acc, x) => acc);
+
+// If called on a non-empty list it will yield first element
+const giveFirst = first([1, 2, 3]); // 1
+// If called on an empty list it will blow up (Give error)
+const gitFirst = first([]); // Error
+```
