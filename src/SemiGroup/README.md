@@ -1,6 +1,6 @@
 ## Semi-Group
 
-**A semi-group is a type with a `concat` method**
+**A semi-group is a type with a `concat` method that is associative**
 
 A `Semi-Group` is a mathematical term that comes from algebra that has some rules like `Associativity`
 
@@ -9,6 +9,7 @@ A `Semi-Group` is a mathematical term that comes from algebra that has some rule
 
 If you think about it addition is a semi-group i.e. 1 + (1 + 1) = (1 + 1) + 1
 but we can't call `concat` on a number. But we can define our own semi-group.
+`If a data structure is entirely made up of semi groups then it will be a semi group itself`
 
 #### Sum Semi-Group:
 
