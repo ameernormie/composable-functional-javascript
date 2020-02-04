@@ -35,3 +35,7 @@ const firstValue = First("blah")
   .concat(First("no"))
   .concat("meta programming");
 firstValue;
+
+module.exports.Sum = Sum;
+module.exports.All = All;
+module.exports.First = First;
