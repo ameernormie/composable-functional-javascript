@@ -55,3 +55,28 @@ const res = First("blah").concat(First("ice cream"));
 
 res; // First(blah)
 ```
+
+#### Right Semi-group:
+
+```javascript
+const Right = x => ({
+  fold: (f, g) => Right(g(x)),
+  map: f => Right(f(x)),
+  concat: o =>
+    o.fold(
+      e => Left(e),
+      r => Right(x.concat(r))
+    )
+});
+```
+
+#### Left Semi-group:
+
+```javascript
+const Left = x => ({
+  fold: (f, g) => f(x),
+  map: f => Left(x)),
+  concat: o =>
+    Left(x)
+});
+```
