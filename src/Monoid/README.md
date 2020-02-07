@@ -108,16 +108,16 @@ Max.empty = () => Max(-Infinity);
 
 #### Min Monoid:
 
-````javascript
+```javascript
 const Min = x => ({
   x,
   concat: o => Min(x < o.x ? x : o.x)
 });
 
 Min.empty = () => Min(Infinity);
----
+```
 
-**A semi-group doesn't have an identity value so it does not have an element to return, so it is not a safe operation, whereas with a monoid we can take as many as possible even an none**
+**A semi-group does not have an identity value so it does not have an element to return, so it is not a safe operation, whereas with a monoid we can take as many as possible even an none**
 
 ```javascript
 // Starting point of reduce is 0, that is an identity for sum
@@ -143,4 +143,4 @@ const first = xs => xs.reduce((acc, x) => acc);
 const giveFirst = first([1, 2, 3]); // 1
 // If called on an empty list it will blow up (Give error)
 const gitFirst = first([]); // Error
-````
+```
