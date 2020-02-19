@@ -1,4 +1,4 @@
-const Box = require("../Box/Box");
+const Box = require("../Box");
 
 // We have a box of a function and want to apply it to a box of a value
 const res = Box(x => x + 1).ap(Box(2)); // Box(3)
