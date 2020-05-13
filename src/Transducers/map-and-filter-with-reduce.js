@@ -42,9 +42,18 @@ const pushReducer = (accumulation, value) => {
   return accumulation;
 };
 
-console.log(
-  [1, 2, 3, 4, 5, 6].reduce(
-    isNotTwoFilter(isEvenFilter(doubleMap(pushReducer))),
-    []
-  )
-);
+const compose = (...fns) =>
+  fns.reduce(
+    (accumulation, fn) => (...args) => accumulation(fn(...args)),
+    (x) => x
+  );
+// console.log(
+//   [1, 2, 3, 4, 5, 6].reduce(
+//     isNotTwoFilter(isEvenFilter(doubleMap(pushReducer))),
+//     []
+//   )
+// );
+
+const cleanNumsXf = compose(isNotTwoFilter, isEvenFilter, doubleMap);
+
+console.log([1, 2, 3, 4, 5, 6].reduce(cleanNumsXf(pushReducer), []));
