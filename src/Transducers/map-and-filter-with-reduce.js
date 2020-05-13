@@ -1,28 +1,50 @@
+// const { doubleTheNumber, evenOnly } = require("./utils");
+
 const doubleTheNumber = (num) => num * 2;
-const doubleTwice = (num) => doubleTheNumber(doubleTheNumber(num));
-
-console.log([1, 2, 3, 4].map(doubleTheNumber));
-console.log([1, 2, 3, 4].map(doubleTwice));
-
 const evenOnly = (num) => num % 2 === 0;
 
 /** Types mismatch - evenOnly returs a predicate whereas doubleTwice returns a number - This will not work */
 const doubleAndEven = (num) => doubleTwice(evenOnly(num));
 
-const map = (transform, arr) => {
-  return arr.reduce((accumulation, value) => {
-    accumulation.push(transform(value));
+// const filter = (predicate) => {
+//   return (accumulation, value) => {
+//     if (predicate(value)) accumulation.push(value);
+//     return accumulation;
+//   };
+// };
+
+// console.log(
+//   [1, 2, 3, 4].reduce(filter(evenOnly), []).reduce(map(doubleTheNumber), [])
+// );
+
+const map = (transform) => (reducer) => {
+  return (accumulation, value) => {
+    reducer(accumulation, transform(value));
     return accumulation;
-  }, []);
+  };
 };
 
-console.log(map(doubleTheNumber, [1, 2, 3, 4]));
-
-const filter = (predicate, arr) => {
-  return arr.reduce((accumulation, value) => {
-    if (predicate(value)) accumulation.push(value);
+const filter = (predicate) => (reducer) => {
+  return (accumulation, value) => {
+    if (predicate(value)) return reducer(accumulation, value);
     return accumulation;
-  }, []);
+  };
 };
 
-console.log(filter(evenOnly, [1, 2, 3, 4]));
+const isEvenFilter = filter(evenOnly);
+const isNotTwoFilter = filter((v) => v !== 2);
+
+// Mapping reducer that double the values
+const doubleMap = map(doubleTheNumber);
+
+const pushReducer = (accumulation, value) => {
+  accumulation.push(value);
+  return accumulation;
+};
+
+console.log(
+  [1, 2, 3, 4, 5, 6].reduce(
+    isNotTwoFilter(isEvenFilter(doubleMap(pushReducer))),
+    []
+  )
+);
