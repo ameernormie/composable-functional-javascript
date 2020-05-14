@@ -5,6 +5,7 @@ const evenOnly = (num) => num % 2 === 0;
 
 /** Types mismatch - evenOnly returs a predicate whereas doubleTwice returns a number - This will not work */
 const doubleAndEven = (num) => doubleTwice(evenOnly(num));
+const toUpper = (str) => str.toUpperCase();
 
 // const filter = (predicate) => {
 //   return (accumulation, value) => {
@@ -57,3 +58,18 @@ const compose = (...fns) =>
 const cleanNumsXf = compose(isNotTwoFilter, isEvenFilter, doubleMap);
 
 console.log([1, 2, 3, 4, 5, 6].reduce(cleanNumsXf(pushReducer), []));
+
+const transduce = (xf, reducer, seed, collection) => {
+  let accumulation = seed;
+  const transformReducer = xf(reducer);
+  for (const value of collection) {
+    accumulation = transformReducer(accumulation, value);
+  }
+  return accumulation;
+};
+
+console.log(transduce(cleanNumsXf, pushReducer, [], [1, 2, 3, 4, 5, 6, 7, 8]));
+
+console.log((map(toUpper), (str, char) => str + char, "", "ameer"));
+
+// console.log("ameer".split('').reduce(map(toUpper)((acc, val) => acc + val), ""))
