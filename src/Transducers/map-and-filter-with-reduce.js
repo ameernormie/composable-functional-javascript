@@ -7,17 +7,6 @@ const evenOnly = (num) => num % 2 === 0;
 const doubleAndEven = (num) => doubleTwice(evenOnly(num));
 const toUpper = (str) => str.toUpperCase();
 
-// const filter = (predicate) => {
-//   return (accumulation, value) => {
-//     if (predicate(value)) accumulation.push(value);
-//     return accumulation;
-//   };
-// };
-
-// console.log(
-//   [1, 2, 3, 4].reduce(filter(evenOnly), []).reduce(map(doubleTheNumber), [])
-// );
-
 const map = (transform) => (reducer) => {
   return (accumulation, value) => {
     reducer(accumulation, transform(value));
@@ -71,8 +60,6 @@ const transduce = (xf, reducer, seed, collection) => {
 console.log(transduce(cleanNumsXf, pushReducer, [], [1, 2, 3, 4, 5, 6, 7, 8]));
 
 console.log((map(toUpper), (str, char) => str + char, "", "ameer"));
-
-// console.log("ameer".split('').reduce(map(toUpper)((acc, val) => acc + val), ""))
 
 const into = (to, xf, collection) => {
   if (Array.isArray(to)) return transduce(xf, pushReducer, to, collection);
