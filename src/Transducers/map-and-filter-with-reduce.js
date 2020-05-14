@@ -73,3 +73,20 @@ console.log(transduce(cleanNumsXf, pushReducer, [], [1, 2, 3, 4, 5, 6, 7, 8]));
 console.log((map(toUpper), (str, char) => str + char, "", "ameer"));
 
 // console.log("ameer".split('').reduce(map(toUpper)((acc, val) => acc + val), ""))
+
+const into = (to, xf, collection) => {
+  if (Array.isArray(to)) return transduce(xf, pushReducer, to, collection);
+
+  throw new Error("Into only works for arrays");
+};
+
+const multipleBy2And3 = into(
+  [],
+  compose(
+    map((x) => x * 2),
+    map((x) => x * 3)
+  ),
+  [1, 2, 3, 4]
+);
+
+multipleBy2And3;
