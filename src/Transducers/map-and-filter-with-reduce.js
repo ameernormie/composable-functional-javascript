@@ -90,3 +90,10 @@ const multipleBy2And3 = into(
 );
 
 multipleBy2And3;
+
+const seq = (xf, collection) => {
+  if (Array.isArray(collection))
+    return transduce(xf, pushReducer, [], collection);
+
+  throw new Error("Into only works for arrays");
+};
