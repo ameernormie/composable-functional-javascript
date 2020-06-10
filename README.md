@@ -124,3 +124,18 @@ Expressions are evaluated only when they are needed.
 - Purity by virtue of laziness
 - Nothing happens so we don't have any side effects
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
