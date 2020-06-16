@@ -6,6 +6,7 @@
   "author": "Ameer Hamza <ameernormie@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "crocks": "^0.12.4",
     "data.task": "^3.1.2",
     "fp-ts": "^2.4.0",
     "futurize": "^1.2.0",
