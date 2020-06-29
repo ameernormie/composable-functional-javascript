@@ -5,6 +5,9 @@
   "repository": "git@github.com:ameernormie/composable-functional-javascript.git",
   "author": "Ameer Hamza <ameernormie@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "start": "parcel src/index.html"
+  },
   "dependencies": {
     "crocks": "^0.12.4",
     "data.task": "^3.1.2",
